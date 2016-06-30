@@ -8,6 +8,14 @@ namespace Lidercap\Core\Error;
 trait ErrorHandlerAware
 {
     /**
+     * @param string $error
+     */
+    public function addError($error)
+    {
+        ErrorHandler::getInstance()->addError($error);
+    }
+
+    /**
      * @return string
      */
     public function getLastError()
@@ -37,5 +45,13 @@ trait ErrorHandlerAware
     public function setErrors(array $errors)
     {
         ErrorHandler::getInstance()->setErrors($errors);
+    }
+
+    /**
+     * @return void
+     */
+    public function clearErrors()
+    {
+        ErrorHandler::getInstance()->clearErrors();
     }
 }

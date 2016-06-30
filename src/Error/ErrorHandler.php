@@ -22,6 +22,14 @@ class ErrorHandler implements ErrorHandlerInterface
     protected $errors = [];
 
     /**
+     * @param string $error
+     */
+    public function addError($error)
+    {
+        array_push($this->errors, $error);
+    }
+
+    /**
      * @return string
      */
     public function getLastError()
@@ -51,5 +59,13 @@ class ErrorHandler implements ErrorHandlerInterface
     public function setErrors(array $errors)
     {
         $this->errors = $errors;
+    }
+
+    /**
+     * @return void
+     */
+    public function clearErrors()
+    {
+        $this->errors = [];
     }
 }

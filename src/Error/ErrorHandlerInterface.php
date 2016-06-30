@@ -8,6 +8,11 @@ namespace Lidercap\Core\Error;
 interface ErrorHandlerInterface
 {
     /**
+     * @param string $error
+     */
+    public function addError($error);
+
+    /**
      * @return string
      */
     public function getLastError();
@@ -26,4 +31,9 @@ interface ErrorHandlerInterface
      * @param array $errors
      */
     public function setErrors(array $errors);
+
+    /**
+     * @return void
+     */
+    public function clearErrors();
 }
