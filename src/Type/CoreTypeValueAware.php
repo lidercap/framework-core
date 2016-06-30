@@ -10,6 +10,8 @@ trait CoreTypeValueAware
     protected $value;
 
     /**
+     * @codeCoverageIgnore
+     *
      * @param mixed $value
      */
     public function __construct($value = null)
@@ -18,6 +20,8 @@ trait CoreTypeValueAware
     }
 
     /**
+     * @codeCoverageIgnore
+     *
      * @return mixed
      */
     public function getValue()
@@ -26,6 +30,8 @@ trait CoreTypeValueAware
     }
 
     /**
+     * @codeCoverageIgnore
+     *
      * @param mixed $value
      *
      * @return mixed
