@@ -3,7 +3,9 @@
 namespace Lidercap\Core\Pattern\ResultSetMapper;
 
 /**
- * Interface MapperInterface
+ * Pattern Mapper.
+ *
+ * @link https://en.wikipedia.org/wiki/Data_mapper_pattern
  */
 interface MapperInterface
 {
