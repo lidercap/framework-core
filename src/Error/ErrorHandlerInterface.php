@@ -1,6 +1,6 @@
 <?php
 
-namespce Lidercap\Core\Error;
+namespace Lidercap\Core\Error;
 
 /**
  * Interface para tratadores de erro.
