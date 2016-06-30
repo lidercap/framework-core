@@ -20,7 +20,10 @@ trait CoreTypeValueAware
     /**
      * @return mixed
      */
-    public function getValue();
+    public function getValue()
+    {
+        return $this->value;
+    }
 
     /**
      * @param mixed $value
