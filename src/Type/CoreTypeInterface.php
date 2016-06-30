@@ -19,8 +19,6 @@ interface CoreTypeInterface
 
     /**
      * @param mixed $value
-     *
-     * @return mixed
      */
     public function setValue($value = null);
 
