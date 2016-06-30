@@ -18,11 +18,6 @@ interface ErrorHandlerInterface
     public function getLastError();
 
     /**
-     * @param string $lastError
-     */
-    public function setLastError($lastError);
-
-    /**
      * @return array
      */
     public function getErrors();
