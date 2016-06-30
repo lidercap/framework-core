@@ -15,6 +15,8 @@ trait Singleton
     protected static $instance = false;
 
     /**
+     * @codeCoverageIgnore
+     *
      * Construct is protected to non-singleton instance.
      */
     protected function __construct()
@@ -23,6 +25,8 @@ trait Singleton
     }
 
     /**
+     * @codeCoverageIgnore
+     *
      * @return $this
      */
     final public static function getInstance()
