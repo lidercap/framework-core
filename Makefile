@@ -35,7 +35,7 @@ install: .clear .check-composer
 	@$(COMPOSER) install
 
 lint: .clear
-	@for file in `find ./src` ; do \
+	@for file in `find ./src ./tests` ; do \
 		results=`php -l $$file`; \
 		if [ "$$results" != "No syntax errors detected in $$file" ]; then \
 			echo $$results; \
