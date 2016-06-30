@@ -32,6 +32,6 @@ trait CoreTypeValueAware
      */
     public function setValue($value = null)
     {
-        $this->value = $value
+        $this->value = $value;
     }
 }

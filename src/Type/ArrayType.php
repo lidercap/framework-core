@@ -3,9 +3,9 @@
 namespace Lidercap\Core\Type;
 
 /**
- * Core Type Array.
+ * Core Type ArrayType.
  */
-class Array implements CoreTypeInterface
+class ArrayType implements CoreTypeInterface
 {
     use CoreTypeValueAware;
 
