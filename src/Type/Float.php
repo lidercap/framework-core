@@ -8,14 +8,6 @@ namespace Lidercap\Core\Type;
 class Float extends Number
 {
     /**
-     * @param float $value
-     */
-    public function setValue($value = null)
-    {
-        $this->value = (float)$value;
-    }
-
-    /**
      * @return bool
      */
     public function isValid()
