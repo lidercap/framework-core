@@ -1,11 +1,10 @@
 Framework Core
 ==============
 
-Este pacote contém pequenos componente que extendem funcionalidades do PHP
-or provém uma base de código coerente para outros componentes do framework.
+Este pacote contém pequenos componente que extendem funcionalidades nativas do PHP,
+ou que provém uma base de código coerente para outros componentes do framework.
 
-Em resumo: tudo o que for pequeno de mais para ter o próprio repositório, 
-deverá residir neste projeto.
+Em resumo: tudo o que for pequeno de mais para ter o próprio repositório, deverá residir neste projeto.
 
 Exemplos:
 
