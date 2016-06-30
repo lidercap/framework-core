@@ -1,7 +1,7 @@
 {
   "name": "lidercap/framework-core",
   "description": "Base de código para outros componentes",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "proprietary",
   "type": "component",
   "config": {
@@ -26,8 +26,7 @@
     "phpmd/phpmd": "2.1.*",
     "sebastian/phpcpd": "2.0.*",
     "sebastian/phpdcd": "^1.0",
-    "squizlabs/php_codesniffer": "^2.6",
-    "mikey179/vfsStream": "^1.6"
+    "squizlabs/php_codesniffer": "^2.6"
   },
   "minimum-stability": "dev",
   "prefer-stable": true
