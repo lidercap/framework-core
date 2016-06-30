@@ -92,18 +92,18 @@ class String implements CoreTypeInterface
     /**
      * Trunca a string.
      *
-     * @param int    $limit Tamanho limite da string.
-     * @param string $char  Caracter a ser apendado ao final.
+     * @param int    $limit  Tamanho limite da string.
+     * @param string $append Caracter a ser apendado ao final.
      *
      * @return string
      */
-    public function truncate($limit, $char = '...')
+    public function truncate($limit, $append = '')
     {
         if (strlen($this->value) <= (int)$limit) {
             return $this->value;
         }
 
-        return substr($this->value, 0, (int)$limit - strlen($char)) . $char;
+        return substr($this->value, 0, (int)$limit) . $append;
     }
 
     /**
