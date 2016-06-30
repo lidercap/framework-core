@@ -71,7 +71,7 @@ coverage: .rw
 
 clean:
 	@echo "${BOLD}==> Removing build and temporary files...${ENDBOLD}"
-	@rm -Rf ${BUILD} coverage.xml
+	@rm -Rf ${BUILD}
 
 clean-all: .clear clean
 	@echo "${BOLD}==> Removing external dependencies...${ENDBOLD}"
