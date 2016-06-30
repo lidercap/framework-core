@@ -4,6 +4,8 @@ namespace Lidercap\Core\Error;
 
 /**
  * Adiciona um tratador de erro em qualquer classe.
+ *
+ * @codeCoverageIgnore
  */
 trait ErrorHandlerAware
 {
@@ -21,14 +23,6 @@ trait ErrorHandlerAware
     public function getLastError()
     {
         return ErrorHandler::getInstance()->getLastError();
-    }
-
-    /**
-     * @param string $lastError
-     */
-    public function setLastError($lastError)
-    {
-        ErrorHandler::getInstance()->setLastError($lastError);
     }
 
     /**
