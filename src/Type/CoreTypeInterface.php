@@ -10,7 +10,7 @@ interface CoreTypeInterface
     /**
      * @param mixed $value
      */
-    public function __construct($initialValue = null);
+    public function __construct($value = null);
 
     /**
      * @return mixed
@@ -18,11 +18,11 @@ interface CoreTypeInterface
     public function getValue();
 
     /**
-     * @param mixed $newValue
+     * @param mixed $value
      *
      * @return mixed
      */
-    public function setValue($newValue = null);
+    public function setValue($value = null);
 
     /**
      * @return bool
