@@ -1,7 +1,7 @@
 {
-  "name": "lidercap/framework-skeleton",
-  "description": "Esqueleto de componentes PHP",
-  "version": "0.1.1",
+  "name": "lidercap/framework-core",
+  "description": "Base de código para outros componentes",
+  "version": "0.1.0",
   "license": "proprietary",
   "type": "component",
   "config": {
@@ -9,12 +9,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Lidercap\\Skeleton\\": "src/"
+      "Lidercap\\Core\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Lidercap\\Tests\\Skeleton\\": "tests/"
+      "Lidercap\\Tests\\Core\\": "tests/"
     }
   },
   "require": {
