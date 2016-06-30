@@ -193,4 +193,27 @@ class String implements CoreTypeInterface
             )
         );
     }
+
+    /**
+     * Converte a string em array.
+     *
+     * @param string $sepatator Separador.
+     *
+     * @return array
+     */
+    public function explode($sepatator = ',')
+    {
+        return @explode($sepatator, $this->value);
+    }
+
+    /**
+     * Converte um array em string.
+     *
+     * @param array  $array     Array a ser importado.
+     * @param string $sepatator Separador.
+     */
+    public function join(array $array, $sepatator = ',')
+    {
+        $this->value = @implode($sepatator, $array);
+    }
 }

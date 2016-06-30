@@ -40,4 +40,14 @@ trait CoreTypeValueAware
     {
         $this->value = $value;
     }
+
+    /**
+     * @codeCoverageIgnore
+     *
+     * @return mixed
+     */
+    public function __toString()
+    {
+        return (string)$this->getValue();
+    }
 }

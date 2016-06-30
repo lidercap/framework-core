@@ -31,4 +31,11 @@ class StringTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(strlen($value), $string->length());
     }
+
+    public function testTrim()
+    {
+        $value  = 'string';
+        $string = new String(str_repeat(' ', rand(1, 100)) . $value . str_repeat(' ', rand(1, 100)));
+        $this->assertEquals($value, $string->trim());
+    }
 }
