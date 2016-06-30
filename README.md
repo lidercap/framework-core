@@ -1,4 +1,4 @@
-Framweork Core
+Framework Core
 ==============
 
 Este pacote contém pequenos componente que extendem funcionalidades do PHP
@@ -19,7 +19,7 @@ Exemplos:
 Instalação
 ----------
 
-É recomendado instalar **Framweork Core** através do [composer](http://getcomposer.org).
+É recomendado instalar **Framework Core** através do [composer](http://getcomposer.org).
 
 ```
 {
