@@ -1,22 +1,35 @@
-Nome do Projeto
-===============
+Framweork Core
+==============
 
-Aqui vai uma pequena descrição do projeto, falando um pouco sobre seu propósito e os problemas que ele se propõe a resolver.
+Este pacote contém pequenos componente que extendem funcionalidades do PHP
+or provém uma base de código coerente para outros componentes do framework.
+
+Em resumo: tudo o que for pequeno de mais para ter o próprio repositório, 
+deverá residir neste projeto.
+
+Exemplos:
+
+* Service traits
+* Pattern traits
+* Controller helper methods
+* Types, collections
+* Exceptions
+* etc...
 
 Instalação
 ----------
 
-É recomendado instalar [nome-do-projeto] através do [composer](http://getcomposer.org).
+É recomendado instalar **Framweork Core** através do [composer](http://getcomposer.org).
 
 ```
 {
     "require": {
-        "lidercap/framework-[nome-do-projeto]": "dev-master"
+        "lidercap/framework-core": "dev-master"
     },
     "repositories": [
         {
             "type": "vcs",
-            "url":  "git@bitbucket.org:lidercap/framework-[nome-do-projeto].git"
+            "url":  "git@bitbucket.org:lidercap/framework-core.git"
         }
     ]
 }
