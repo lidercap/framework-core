@@ -38,4 +38,115 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $string = new String(str_repeat(' ', rand(1, 100)) . $value . str_repeat(' ', rand(1, 100)));
         $this->assertEquals($value, $string->trim());
     }
+
+    /**
+     * @return array
+     */
+    public function providerLowerCase()
+    {
+        return [
+            ['string', 'string'],
+            ['STRING', 'string'],
+            ['String', 'string'],
+            ['StRinG', 'string'],
+        ];
+    }
+
+    /**
+     * @dataProvider providerLowerCase
+     *
+     * @param string $value
+     * @param string $expected
+     */
+    public function testLowerCase($value, $expected)
+    {
+        $string = new String($value);
+        $this->assertEquals($expected, $string->lowerCase());
+    }
+
+    /**
+     * @return array
+     */
+    public function providerUpperCase()
+    {
+        return [
+            ['STRING', 'STRING'],
+            ['string', 'STRING'],
+            ['String', 'STRING'],
+            ['StRinG', 'STRING'],
+        ];
+    }
+
+    /**
+     * @dataProvider providerUpperCase
+     *
+     * @param string $value
+     * @param string $expected
+     */
+    public function testUpperCase($value, $expected)
+    {
+        $string = new String($value);
+        $this->assertEquals($expected, $string->upperCase());
+    }
+
+    /**
+     * @return array
+     */
+    public function providerCapitalize()
+    {
+        return [
+            ['STRING', 'String'],
+            ['string', 'String'],
+            ['String', 'String'],
+            ['StRinG', 'String'],
+        ];
+    }
+
+    /**
+     * @dataProvider providerCapitalize
+     *
+     * @param string $value
+     * @param string $expected
+     */
+    public function testCapitalize($value, $expected)
+    {
+        $string = new String($value);
+        $this->assertEquals($expected, $string->capitalize());
+    }
+
+    public function testFirstChar1()
+    {
+        $value = 'value';
+        $char  = '/';
+
+        $string = new String($value);
+        $this->assertEquals($char . $value, $string->firstChar($char));
+    }
+
+    public function testFirstChar2()
+    {
+        $value = '/value';
+        $char  = '/';
+
+        $string = new String($value);
+        $this->assertEquals($value, $string->firstChar($char));
+    }
+
+    public function testLastChar1()
+    {
+        $value = 'value';
+        $char  = '/';
+
+        $string = new String($value);
+        $this->assertEquals($value . $char, $string->lastChar($char));
+    }
+
+    public function testLastChar2()
+    {
+        $value = 'value/';
+        $char  = '/';
+
+        $string = new String($value);
+        $this->assertEquals($value, $string->lastChar($char));
+    }
 }

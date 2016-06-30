@@ -40,7 +40,7 @@ class String implements CoreTypeInterface
      *
      * @return string
      */
-    public function lowercase()
+    public function lowerCase()
     {
         return strtolower($this->value);
     }
@@ -50,7 +50,7 @@ class String implements CoreTypeInterface
      *
      * @return string
      */
-    public function uppercase()
+    public function upperCase()
     {
         return strtoupper($this->value);
     }
@@ -63,23 +63,6 @@ class String implements CoreTypeInterface
     public function capitalize()
     {
         return ucfirst(strtolower($this->value));
-    }
-
-    /**
-     * Trunca a string.
-     *
-     * @param int    $limit Tamanho limite da string.
-     * @param string $char  Caracter a ser apendado ao final.
-     *
-     * @return string
-     */
-    public function truncate($limit = 30, $char = '...')
-    {
-        if (strlen($this->value) <= (int)$limit) {
-            return $this->value;
-        }
-
-        return substr($this->value, 0, (int)$limit - strlen($char)) . $char;
     }
 
     /**
@@ -104,6 +87,23 @@ class String implements CoreTypeInterface
     public function lastChar($char)
     {
         return (substr($this->value, -1) !== $char) ? $this->value . $char : $this->value;
+    }
+
+    /**
+     * Trunca a string.
+     *
+     * @param int    $limit Tamanho limite da string.
+     * @param string $char  Caracter a ser apendado ao final.
+     *
+     * @return string
+     */
+    public function truncate($limit, $char = '...')
+    {
+        if (strlen($this->value) <= (int)$limit) {
+            return $this->value;
+        }
+
+        return substr($this->value, 0, (int)$limit - strlen($char)) . $char;
     }
 
     /**
