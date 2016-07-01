@@ -3,9 +3,15 @@
 namespace Lidercap\Tests\Core\Type;
 
 use Lidercap\Core\Type\Cpf;
+use Lidercap\Core\Type\Maskable;
 
 class CpfTest extends \PHPUnit_Framework_TestCase
 {
+    public function testInterface()
+    {
+        $this->assertInstanceOf(Maskable::class, new Cpf());
+    }
+
     /**
      * @return array
      */
