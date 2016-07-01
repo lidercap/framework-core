@@ -47,7 +47,6 @@ class StringTest extends \PHPUnit_Framework_TestCase
     public function testIsInvalid()
     {
         $string = new String(1);
-        $this->assertFalse($string->isValid());
     }
 
     public function testLength()

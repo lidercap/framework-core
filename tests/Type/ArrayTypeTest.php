@@ -18,10 +18,14 @@ class ArrayTypeTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($array->isValid());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Tipo de dado inválido
+     * @expectedExceptionCode -1
+     */
     public function testIsInvalid()
     {
         $array = new ArrayType('string');
-        $this->assertFalse($array->isValid());
     }
 
     public function testLength()
