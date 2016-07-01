@@ -44,7 +44,7 @@ trait CoreTypeValueAware
 
         if (!is_null($value) and !$this->isValid()) {
             $this->value = null;
-            throw new \InvalidArgumentException('Tipo de dado inválido', -1);
+            throw new \InvalidArgumentException($this->getErrorMessage(), -1);
         }
     }
 

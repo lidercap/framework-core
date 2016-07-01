@@ -5,7 +5,7 @@ namespace Lidercap\Core\Type;
 /**
  * Core Type Number.
  */
-class Number implements CoreTypeInterface
+class Number extends AbstractType
 {
     use CoreTypeValueAware;
 
@@ -23,5 +23,13 @@ class Number implements CoreTypeInterface
     public function length()
     {
         return strlen($this->value);
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        return 'Número inválido';
     }
 }

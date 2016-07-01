@@ -20,7 +20,7 @@ class ArrayTypeTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Tipo de dado inválido
+     * @expectedExceptionMessage Array inválido
      * @expectedExceptionCode -1
      */
     public function testIsInvalid()

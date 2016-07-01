@@ -55,7 +55,7 @@ class FloatTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Tipo de dado inválido
+     * @expectedExceptionMessage Número inválido
      * @expectedExceptionCode -1
      *
      * @dataProvider providerInvalidFloats

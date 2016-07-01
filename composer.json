@@ -1,7 +1,7 @@
 {
   "name": "lidercap/framework-core",
   "description": "Base de código para outros componentes",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "license": "proprietary",
   "type": "component",
   "config": {
@@ -18,7 +18,8 @@
     }
   },
   "require": {
-    "php": ">=5.5.9"
+    "php": ">=5.5.9",
+    "respect/validation": "^1.1"
   },
   "require-dev": {
     "ext-xdebug": "*",

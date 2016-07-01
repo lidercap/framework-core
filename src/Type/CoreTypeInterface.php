@@ -30,4 +30,9 @@ interface CoreTypeInterface extends Validatable
      * @return int
      */
     public function length();
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage();
 }

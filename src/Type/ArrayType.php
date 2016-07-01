@@ -5,7 +5,7 @@ namespace Lidercap\Core\Type;
 /**
  * Core Type ArrayType.
  */
-class ArrayType implements CoreTypeInterface
+class ArrayType extends AbstractType
 {
     use CoreTypeValueAware;
 
@@ -23,5 +23,13 @@ class ArrayType implements CoreTypeInterface
     public function length()
     {
         return count($this->value);
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        return 'Array inválido';
     }
 }
