@@ -51,10 +51,10 @@ trait CoreTypeValueAware
     /**
      * @codeCoverageIgnore
      *
-     * @return mixed
+     * @return string
      */
     public function __toString()
     {
-        return (string)$this->getValue();
+        return $this->getValue();
     }
 }

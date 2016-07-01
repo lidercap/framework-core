@@ -22,6 +22,17 @@ class StringTest extends \PHPUnit_Framework_TestCase
         new String(null);
     }
 
+    public function testEcho()
+    {
+        $value  = 'my string ' . rand(1, 100);
+        $string = new String($value);
+
+        ob_start();
+        echo $string;
+
+        $this->assertEquals($value, ob_get_clean());
+    }
+
     public function testIsValid()
     {
         $string = new String('my string');
