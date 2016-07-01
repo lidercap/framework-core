@@ -19,6 +19,8 @@ interface CoreTypeInterface
 
     /**
      * @param mixed $value
+     *
+     * @throws \InvalidArgumentException
      */
     public function setValue($value = null);
 

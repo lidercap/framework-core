@@ -12,12 +12,27 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(CoreTypeInterface::class, new String);
     }
 
+    public function testContructDefaultValue()
+    {
+        new String();
+    }
+
+    public function testContructNull()
+    {
+        new String(null);
+    }
+
     public function testIsValid()
     {
         $string = new String('my string');
         $this->assertTrue($string->isValid());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Tipo de dado inválido
+     * @expectedExceptionCode -1
+     */
     public function testIsInvalid()
     {
         $string = new String(1);

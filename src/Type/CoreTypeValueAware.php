@@ -12,6 +12,8 @@ trait CoreTypeValueAware
     /**
      * @codeCoverageIgnore
      *
+     * @throws \InvalidArgumentException
+     *
      * @param mixed $value
      */
     public function __construct($value = null)
@@ -34,11 +36,16 @@ trait CoreTypeValueAware
      *
      * @param mixed $value
      *
-     * @return mixed
+     * @throws \InvalidArgumentException
      */
     public function setValue($value = null)
     {
         $this->value = $value;
+
+        if (!is_null($value) and !$this->isValid()) {
+            $this->value = null;
+            throw new \InvalidArgumentException('Tipo de dado inválido', -1);
+        }
     }
 
     /**
