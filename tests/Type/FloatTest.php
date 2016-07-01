@@ -49,19 +49,21 @@ class FloatTest extends \PHPUnit_Framework_TestCase
             ['my string'],
             [true],
             [false],
-            [null],
             [''],
         ];
     }
 
     /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Tipo de dado inválido
+     * @expectedExceptionCode -1
+     *
      * @dataProvider providerInvalidFloats
      *
      * @param mixed $value
      */
     public function testIsInvalid($value)
     {
-        $float = new Float($value);
-        $this->assertFalse($float->isValid($value));
+        new Float($value);
     }
 }

@@ -18,15 +18,19 @@ class NumberTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($string->isValid());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Tipo de dado inválido
+     * @expectedExceptionCode -1
+     */
     public function testIsInvalid()
     {
-        $string = new Number('string');
-        $this->assertFalse($string->isValid());
+        new Number('string');
     }
 
     public function testLength()
     {
-        $value  = 'this is my random string ' . rand(1, 100);
+        $value  = rand(1, 100);
         $string = new Number($value);
 
         $this->assertEquals(strlen($value), $string->length());

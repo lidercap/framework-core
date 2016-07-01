@@ -48,12 +48,15 @@ class IntTest extends \PHPUnit_Framework_TestCase
             ['my string'],
             [true],
             [false],
-            [null],
             [''],
         ];
     }
 
     /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Tipo de dado inválido
+     * @expectedExceptionCode -1
+     *
      * @dataProvider providerInvalidInts
      *
      * @param mixed $value
