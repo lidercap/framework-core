@@ -2,10 +2,12 @@
 
 namespace Lidercap\Core\Type;
 
+use Lidercap\Core\Behavior\Validatable;
+
 /**
  * Interface para core types.
  */
-interface CoreTypeInterface
+interface CoreTypeInterface extends Validatable
 {
     /**
      * @param mixed $value
@@ -23,11 +25,6 @@ interface CoreTypeInterface
      * @throws \InvalidArgumentException
      */
     public function setValue($value = null);
-
-    /**
-     * @return bool
-     */
-    public function isValid();
 
     /**
      * @return int
