@@ -19,10 +19,19 @@ class CepTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['00000-000'],
+            ['00000000'],
+
             ['11111-111'],
+            ['11111111'],
+
             ['01315-010'],
+            ['01315010'],
+
             ['01232-001'],
+            ['01232001'],
+
             ['05344-030'],
+            ['05344030'],
         ];
     }
 
@@ -43,12 +52,20 @@ class CepTest extends \PHPUnit_Framework_TestCase
     public function providerInValidCeps()
     {
         return [
-            ['00000000'],
-            ['1111-111'],
-            ['11111-11'],
+            ['000000-00'],
+            ['0000000'],
+
+            ['1111-1111'],
+            ['111111111'],
+
             ['01315-a10'],
+            ['01315a10'],
+
             ['01232-0a1'],
+            ['012320a1'],
+
             ['05344-03a'],
+            ['0534403a'],
         ];
     }
 
@@ -67,28 +84,34 @@ class CepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider providerValidCeps
-     *
-     * @param string $value
-     */
-    public function testIsMasked($value)
-    {
-        $cep = new Cep($value);
-        $this->assertTrue($cep->isMasked());
-    }
-
-    /**
      * @return array
      */
-    public function providerMasks()
+    public function providerMaskedAndUnMasked()
     {
         return [
             ['12345678', '12345-678'],
+            ['00000000', '00000-000'],
+            ['01315010', '01315-010'],
         ];
     }
 
     /**
-     * @dataProvider providerMasks
+     * @dataProvider providerMaskedAndUnMasked
+     *
+     * @param string $unMasked
+     * @param string $masked
+     */
+    public function testIsMasked($unMasked, $masked)
+    {
+        $cep = new Cep($masked);
+        $this->assertTrue($cep->isMasked());
+
+        $cep = new Cep($unMasked);
+        $this->assertFalse($cep->isMasked());
+    }
+
+    /**
+     * @dataProvider providerMaskedAndUnMasked
      *
      * @param string $unMasked
      * @param string $masked
@@ -97,5 +120,17 @@ class CepTest extends \PHPUnit_Framework_TestCase
     {
         $cep = new Cep($unMasked);
         $this->assertEquals($masked, $cep->mask());
+    }
+
+    /**
+     * @dataProvider providerMaskedAndUnMasked
+     *
+     * @param string $unMasked
+     * @param string $masked
+     */
+    public function testUnMask($unMasked, $masked)
+    {
+        $cep = new Cep($masked);
+        $this->assertEquals($unMasked, $cep->unMask());
     }
 }

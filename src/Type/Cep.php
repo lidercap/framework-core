@@ -12,7 +12,7 @@ class Cep extends Number implements Maskable
      */
     public function isValid()
     {
-        return (bool)preg_match('/^[0-9]{5}\-[0-9]{3}$/', $this->value);
+        return (bool)preg_match('/^[0-9]{5}\-?[0-9]{3}$/', $this->value);
     }
 
     /**
@@ -22,7 +22,7 @@ class Cep extends Number implements Maskable
      */
     public function isMasked()
     {
-        return true;
+        return (bool)preg_match('/^[0-9]{5}\-[0-9]{3}$/', $this->value);
     }
 
     /**
@@ -32,7 +32,9 @@ class Cep extends Number implements Maskable
      */
     public function mask()
     {
+        $cep = trim($this->value);
 
+        return substr($cep, 0, 5) . '-' . substr($cep, 5, 7);
     }
 
     /**
@@ -42,7 +44,7 @@ class Cep extends Number implements Maskable
      */
     public function unMask()
     {
-
+        return str_replace('-', '', trim($this->value));
     }
 
     /**
