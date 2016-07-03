@@ -9,6 +9,7 @@ BUILD=build
 COMPOSER=/usr/local/bin/composer
 BROWSER=google-chrome
 OPEN=/usr/bin/open
+COVERAGE=${BUILD}/coverage/index.html
 
 OS=$(shell uname -s)
 NAME=`sed 's/[\", ]//g' composer.json | grep name | cut -d: -f2`
@@ -70,9 +71,9 @@ testdox: .rw .clear
 coverage: .rw
 	@[ -d ${BUILD}/coverage ] || make testdox
 	@if [ "${OS}" == "Darwin" ]; then \
-		$(OPEN) ${BUILD}/coverage/index.html; \
+		$(OPEN) ${COVERAGE}; \
 	else \
-		$(BROWSER) ${BUILD}/coverage/index.html; \
+		$(BROWSER) ${COVERAGE}; \
 	fi; \
 
 clean:
