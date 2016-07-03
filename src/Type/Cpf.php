@@ -49,7 +49,7 @@ class Cpf extends Number implements Maskable
      */
     public function unMask()
     {
-        return str_replace(array('.', '-'), '', trim($this->value));
+        return str_replace(['.', '-'], '', trim($this->value));
     }
 
     /**
