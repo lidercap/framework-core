@@ -36,6 +36,19 @@ class String extends AbstractType
     }
 
     /**
+     * Faz uma substituição de caracteres na string.
+     *
+     * @param array|string $search
+     * @param array|string $replace
+     *
+     * @return string
+     */
+    public function replace($search, $replace)
+    {
+        return str_replace($search, $replace, $this->value);
+    }
+
+    /**
      * Converte a string para minúsculas.
      *
      * @return string

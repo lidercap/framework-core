@@ -67,6 +67,37 @@ class StringTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
+    public function providerReplace()
+    {
+        return [
+            ['hello world fulano', 'fulano', 'beltrano', 'hello world beltrano'],
+            ['123.456.789-12', ['-', '.'], '', '12345678912'],
+            [
+                'You should eat fruits, vegetables, and fiber every day',
+                ['fruits', 'vegetables', 'fiber'],
+                ['pizza', 'beer', 'ice cream'],
+                'You should eat pizza, beer, and ice cream every day'
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider providerReplace
+     *
+     * @param string       $phrase
+     * @param array|string $search
+     * @param array|string $replace
+     * @param string       $expected
+     */
+    public function testReplace($phrase, $search, $replace, $expected)
+    {
+        $string = new String($phrase);
+        $this->assertEquals($expected, $string->replace($search, $replace));
+    }
+
+    /**
+     * @return array
+     */
     public function providerLowerCase()
     {
         return [
