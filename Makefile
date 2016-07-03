@@ -7,7 +7,7 @@ ENDBOLD=\033[0m
 STDOUT=> /dev/null 2>&1
 BIN=bin
 BUILD=build
-COMPOSER=/usr/bin/composer
+COMPOSER=/usr/local/bin/composer
 
 NAME=`sed 's/[\", ]//g' composer.json | grep name | cut -d: -f2`
 DESC=`sed 's/[\",]//g' composer.json | grep description | cut -d: -f2 | sed -e 's/^[ \t]*//'`
