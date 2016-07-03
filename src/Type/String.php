@@ -18,6 +18,18 @@ class String extends AbstractType
     }
 
     /**
+     * Verifica se a string bate com a expressáo regular fornecida.
+     *
+     * @param string $with
+     *
+     * @return bool
+     */
+    public function match($with)
+    {
+        return (bool)preg_match($with, $this->value);
+    }
+
+    /**
      * @return int
      */
     public function length()

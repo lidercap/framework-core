@@ -49,6 +49,42 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $string = new String(1);
     }
 
+    /**
+     * @return array
+     */
+    public function providerMatches()
+    {
+        return [
+            ['123.456.789-12', '/^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$/'],
+            ['01/02/2003', '/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/'],
+        ];
+    }
+
+    /**
+     * @dataProvider providerMatches
+     *
+     * @param string $value
+     * @param string $regex
+     */
+    public function testMatch($value, $regex)
+    {
+        $string = new String($value);
+        $this->assertTrue($string->match($regex));
+    }
+
+    /**
+     * @dataProvider providerMatches
+     *
+     * @param string $value
+     * @param string $regex
+     */
+    public function testNotMatch($value, $regex)
+    {
+        $junk   = md5(microtime());
+        $string = new String($value . $junk);
+        $this->assertFalse($string->match($regex));
+    }
+
     public function testLength()
     {
         $value  = 'this is my random string ' . rand(1, 100);
