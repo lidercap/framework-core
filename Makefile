@@ -1,14 +1,16 @@
 #########################
 # CONFIGURATION SECTION #
 #########################
-BROWSER=google-chrome
 BOLD=\033[1m
 ENDBOLD=\033[0m
 STDOUT=> /dev/null 2>&1
 BIN=bin
 BUILD=build
 COMPOSER=/usr/local/bin/composer
+BROWSER=google-chrome
+OPEN=/usr/bin/open
 
+OS=$(shell uname -s)
 NAME=`sed 's/[\", ]//g' composer.json | grep name | cut -d: -f2`
 DESC=`sed 's/[\",]//g' composer.json | grep description | cut -d: -f2 | sed -e 's/^[ \t]*//'`
 VERSION=`sed 's/[\", ]//g' composer.json | grep version | cut -d: -f2`
@@ -67,7 +69,11 @@ testdox: .rw .clear
 
 coverage: .rw
 	@[ -d ${BUILD}/coverage ] || make testdox
-	@$(BROWSER) ${BUILD}/coverage/index.html
+	@if [ "${OS}" == "Darwin" ]; then \
+		$(OPEN) ${BUILD}/coverage/index.html; \
+	else \
+		$(BROWSER) ${BUILD}/coverage/index.html; \
+	fi; \
 
 clean:
 	@echo "${BOLD}==> Removing build and temporary files...${ENDBOLD}"
