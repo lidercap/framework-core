@@ -6,9 +6,9 @@ ENDBOLD=\033[0m
 STDOUT=> /dev/null 2>&1
 BIN=bin
 BUILD=build
-COMPOSER=/usr/local/bin/composer
 BROWSER=google-chrome
 OPEN=/usr/bin/open
+COMPOSER=/usr/local/bin/composer
 COVERAGE=${BUILD}/coverage/index.html
 
 OS=$(shell uname -s)
