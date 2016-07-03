@@ -20,13 +20,13 @@ class String extends AbstractType
     /**
      * Verifica se a string bate com a expressáo regular fornecida.
      *
-     * @param string $with
+     * @param string $regex
      *
      * @return bool
      */
-    public function match($with)
+    public function match($regex)
     {
-        return (bool)preg_match($with, $this->value);
+        return (bool)preg_match($regex, $this->value);
     }
 
     /**
