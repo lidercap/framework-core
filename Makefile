@@ -70,7 +70,7 @@ testdox: .rw .clear
 
 coverage: .rw
 	@[ -d ${BUILD}/coverage ] || make testdox
-	@if [ "${OS}" == "Darwin" ]; then \
+	@if [ "${OS}" = "Darwin" ]; then \
 		$(OPEN) ${COVERAGE}; \
 	else \
 		$(BROWSER) ${COVERAGE}; \
