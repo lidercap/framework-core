@@ -5,7 +5,7 @@ namespace Lidercap\Core\Behavior;
 /**
  * Informações sobre a conexão.
  */
-trait ConnectionInfo
+trait ConnectionInfoAware
 {
     /**
      * @var string
@@ -28,7 +28,7 @@ trait ConnectionInfo
     protected $ip = null;
 
     /**
-     * Gets the value of application.
+     * @codeCoverageIgnore
      *
      * @return string
      */
@@ -42,13 +42,13 @@ trait ConnectionInfo
      *
      * @param string $application the application
      */
-    protected function setApplication($application)
+    public function setApplication($application)
     {
         $this->application = $application;
     }
 
     /**
-     * Gets the value of server.
+     * @codeCoverageIgnore
      *
      * @return string
      */
@@ -62,13 +62,13 @@ trait ConnectionInfo
      *
      * @param string $server the server
      */
-    protected function setServer($server)
+    public function setServer($server)
     {
         $this->server = $server;
     }
 
     /**
-     * Gets the value of database.
+     * @codeCoverageIgnore
      *
      * @return string
      */
@@ -82,13 +82,13 @@ trait ConnectionInfo
      *
      * @param string $database the database
      */
-    protected function setDatabase($database)
+    public function setDatabase($database)
     {
         $this->database = $database;
     }
 
     /**
-     * Gets the value of ip.
+     * @codeCoverageIgnore
      *
      * @return string
      */
@@ -102,8 +102,30 @@ trait ConnectionInfo
      *
      * @param string $ip the ip
      */
-    protected function setIp($ip)
+    public function setIp($ip)
     {
         $this->ip = $ip;
+    }
+
+    /**
+     * @param array $info
+     */
+    public function setConnectionInfo(array $info)
+    {
+        if (isset($info['application'])) {
+            $this->setApplication($info['application']);
+        }
+
+        if (isset($info['server'])) {
+            $this->setServer($info['server']);
+        }
+
+        if (isset($info['database'])) {
+            $this->setDatabase($info['database']);
+        }
+
+        if (isset($info['ip'])) {
+            $this->setIp($info['ip']);
+        }
     }
 }
