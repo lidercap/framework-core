@@ -2,7 +2,7 @@
 
 namespace Lidercap\Core\Type;
 
-use Lidercap\Core\Behavior\Validatable;
+use Lidercap\Core\Pattern\Validatable;
 
 /**
  * Interface para core types.

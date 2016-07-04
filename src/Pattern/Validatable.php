@@ -1,6 +1,6 @@
 <?php
 
-namespace Lidercap\Core\Behavior;
+namespace Lidercap\Core\Pattern;
 
 interface Validatable
 {
