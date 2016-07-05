@@ -20,7 +20,7 @@ Instalação
 
 É recomendado instalar **Framework Core** através do [composer](http://getcomposer.org).
 
-```
+```json
 {
     "require": {
         "lidercap/framework-core": "dev-master"
