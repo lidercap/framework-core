@@ -1,8 +1,8 @@
 <?php
 
-namespace Lidercap\Tests\Core\Behavior;
+namespace Lidercap\Tests\Core\Connection;
 
-use Lidercap\Core\Behavior\ConnectionInfoAware;
+use Lidercap\Core\Connection\ConnectionInfoAware;
 
 class ConnectionInfoAwareTest extends \PHPUnit_Framework_TestCase
 {
