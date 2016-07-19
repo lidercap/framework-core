@@ -55,7 +55,7 @@ class AppTable
      *
      * @return string|false
      */
-    public function getCurrent($file = null)
+    public static function getCurrent($file = null)
     {
         // @codeCoverageIgnoreStart
         if (is_null($file)) {
