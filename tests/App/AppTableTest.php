@@ -61,7 +61,16 @@ class AppTableTest extends \PHPUnit_Framework_TestCase
 
     public function testGetCurrentSuccess()
     {
-        $name = AppTable::getCurrent($this->file);
-        $this->assertEquals('framework-core', $name);
+        $this->assertEquals('framework-core', AppTable::getCurrent($this->file));
+    }
+
+    public function testGetCurrentFileNotExists()
+    {
+        $this->assertFalse(AppTable::getCurrent('non-existent-file'));
+    }
+
+    public function testGetCurrentFileIsNotAValidJson()
+    {
+        $this->assertFalse(AppTable::getCurrent(__FILE__));
     }
 }

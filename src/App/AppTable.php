@@ -57,9 +57,11 @@ class AppTable
      */
     public function getCurrent($file = null)
     {
+        // @codeCoverageIgnoreStart
         if (is_null($file)) {
             $file = __DIR__ . '/../../../vendor/composer.json';
         }
+        // @codeCoverageIgnoreEnd
 
         if (!is_file($file)) {
             return false;
