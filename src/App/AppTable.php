@@ -23,11 +23,11 @@ class AppTable
      *
      * @param string $composerName
      *
-     * @return string|false
+     * @return string|null
      */
     public static function get($composerName)
     {
-        return isset(self::$apps[$composerName]) ? self::$apps[$composerName] : false;
+        return isset(self::$apps[$composerName]) ? self::$apps[$composerName] : null;
     }
 
     /**
@@ -35,7 +35,7 @@ class AppTable
      *
      * @param string $appName
      *
-     * @return string|false
+     * @return string|null
      */
     public static function getComposer($appName)
     {
@@ -45,7 +45,7 @@ class AppTable
             }
         }
 
-        return false;
+        return null;
     }
 
     /**
@@ -53,7 +53,7 @@ class AppTable
      *
      * @param string $file
      *
-     * @return string|false
+     * @return string|null
      */
     public static function getCurrent($file = null)
     {
@@ -64,14 +64,14 @@ class AppTable
         // @codeCoverageIgnoreEnd
 
         if (!is_file($file)) {
-            return false;
+            return null;
         }
 
         $contents = file_get_contents($file);
         $contents = json_decode($contents, true);
 
         if (!isset($contents['name'])) {
-            return false;
+            return null;
         }
 
         return self::get($contents['name']);

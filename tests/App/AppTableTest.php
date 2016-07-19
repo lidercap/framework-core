@@ -40,7 +40,7 @@ class AppTableTest extends \PHPUnit_Framework_TestCase
 
     public function testGetFail()
     {
-        $this->assertFalse(AppTable::get('invalid'));
+        $this->assertNull(AppTable::get('invalid'));
     }
 
     /**
@@ -56,7 +56,7 @@ class AppTableTest extends \PHPUnit_Framework_TestCase
 
     public function testGetComposerFail()
     {
-        $this->assertFalse(AppTable::getComposer('invalid'));
+        $this->assertNull(AppTable::getComposer('invalid'));
     }
 
     public function testGetCurrentSuccess()
@@ -64,13 +64,13 @@ class AppTableTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('framework-core', AppTable::getCurrent($this->file));
     }
 
-    public function testGetCurrentFileNotExists()
+    public function testGetCurrentFailFileNotExists()
     {
-        $this->assertFalse(AppTable::getCurrent('non-existent-file'));
+        $this->assertNull(AppTable::getCurrent('non-existent-file'));
     }
 
-    public function testGetCurrentFileIsNotAValidJson()
+    public function testGetCurrentFailFileIsNotAValidJson()
     {
-        $this->assertFalse(AppTable::getCurrent(__FILE__));
+        $this->assertNull(AppTable::getCurrent(__FILE__));
     }
 }
