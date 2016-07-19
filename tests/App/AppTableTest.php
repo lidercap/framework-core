@@ -58,4 +58,10 @@ class AppTableTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertFalse(AppTable::getComposer('invalid'));
     }
+
+    public function testGetCurrentSuccess()
+    {
+        $name = AppTable::getCurrent($this->file);
+        $this->assertEquals('framework-core', $name);
+    }
 }

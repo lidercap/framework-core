@@ -13,8 +13,9 @@ class AppTable
      * @var array
      */
     protected static $apps = [
-        'telesena-warmup'  => 'warmup',
-        'telesena-backend' => 'manager',
+        'telesena-warmup'         => 'warmup',
+        'telesena-backend'        => 'manager',
+        'lidercap/framework-core' => 'framework-core',
     ];
 
     /**
