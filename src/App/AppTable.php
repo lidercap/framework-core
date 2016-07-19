@@ -59,7 +59,7 @@ class AppTable
     {
         // @codeCoverageIgnoreStart
         if (is_null($file)) {
-            $file = __DIR__ . '/../../../vendor/composer.json';
+            $file = __DIR__ . '/../../../../../composer.json';
         }
         // @codeCoverageIgnoreEnd
 
