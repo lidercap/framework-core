@@ -11,4 +11,20 @@ abstract class AbstractType implements CoreTypeInterface
     {
         return 'Tipo de dado inválido';
     }
+
+    /**
+     * @return int
+     */
+    public function length()
+    {
+        return 0;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return serialize($this->getValue());
+    }
 }
