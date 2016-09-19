@@ -10,6 +10,16 @@ trait ConnectionInfoAware
     /**
      * @var string
      */
+    protected $dbUser;
+
+    /**
+     * @var string
+     */
+    protected $dbPassword;
+
+    /**
+     * @var string
+     */
     protected $application = null;
 
     /**
@@ -26,6 +36,46 @@ trait ConnectionInfoAware
      * @var string
      */
     protected $ip = null;
+
+    /**
+     * @codeCoverageIgnore
+     *
+     * @return string
+     */
+    public function getDbUser()
+    {
+        return $this->dbUser;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     *
+     * @param string $dbUser
+     */
+    public function setDbUser($dbUser)
+    {
+        $this->dbUser = $dbUser;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     *
+     * @return string
+     */
+    public function getDbPassword()
+    {
+        return $this->dbPassword;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     *
+     * @param string $dbPassword
+     */
+    public function setdbPassword($dbPassword)
+    {
+        $this->dbPassword = $dbPassword;
+    }
 
     /**
      * @codeCoverageIgnore
