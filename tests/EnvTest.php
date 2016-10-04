@@ -20,6 +20,8 @@ class EnvTest extends \PHPUnit_Framework_TestCase
 
             ['prod'      , 'production'],
             ['production', 'production'],
+
+            ['local', 'local'],
         ];
     }
 
@@ -58,6 +60,8 @@ class EnvTest extends \PHPUnit_Framework_TestCase
 
             ['prod'      , 'prod'],
             ['production', 'prod'],
+
+            ['local', 'local'],
         ];
     }
 

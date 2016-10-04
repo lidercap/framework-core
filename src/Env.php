@@ -28,6 +28,8 @@ class Env
             case 'dev':
             case 'development':
                 return 'development';
+            case 'local':
+                return 'local';
         }
 
         $message = sprintf('Ambiente inválido: %s', $env);
@@ -55,6 +57,8 @@ class Env
             case 'dev':
             case 'development':
                 return 'dev';
+            case 'local':
+                return 'local';
         }
 
         $message = sprintf('Ambiente inválido: %s', $env);
