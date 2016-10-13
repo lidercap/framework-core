@@ -12,6 +12,8 @@ interface MapperInterface
     /**
      * @param mixed $data
      *
+     * @throws \InvalidArgumentException
+     *
      * @return mixed
      */
     public function map($data);
