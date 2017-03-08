@@ -7,7 +7,7 @@ use Respect\Validation\Validator as v;
 /**
  * Core Type CPF.
  */
-class CpfType extends Number implements Maskable
+class CpfType extends NumberType implements Maskable
 {
     /**
      * @return bool

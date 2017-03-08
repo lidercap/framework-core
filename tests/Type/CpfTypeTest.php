@@ -2,14 +2,14 @@
 
 namespace Lidercap\Tests\Core\Type;
 
-use Lidercap\Core\Type\Cpf;
+use Lidercap\Core\Type\CpfType;
 use Lidercap\Core\Type\Maskable;
 
-class CpfTest extends \PHPUnit_Framework_TestCase
+class CpfTypeTest extends \PHPUnit_Framework_TestCase
 {
     public function testInterface()
     {
-        $this->assertInstanceOf(Maskable::class, new Cpf());
+        $this->assertInstanceOf(Maskable::class, new CpfType);
     }
 
     /**
@@ -39,7 +39,7 @@ class CpfTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsValid($cpf)
     {
-        new Cpf($cpf);
+        new CpfType($cpf);
     }
 
     /**
@@ -95,7 +95,7 @@ class CpfTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsInvalid($cpf)
     {
-        new Cpf($cpf);
+        new CpfType($cpf);
     }
 
     /**
@@ -117,7 +117,7 @@ class CpfTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsMaked($value)
     {
-        $cpf = new Cpf($value);
+        $cpf = new CpfType($value);
         $this->assertTrue($cpf->isMasked());
     }
 
@@ -143,7 +143,7 @@ class CpfTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsUnMaked($value)
     {
-        $cpf = new Cpf($value);
+        $cpf = new CpfType($value);
         $this->assertFalse($cpf->isMasked());
     }
 
@@ -167,7 +167,7 @@ class CpfTest extends \PHPUnit_Framework_TestCase
      */
     public function testMask($masked, $unMasked)
     {
-        $cpf = new Cpf($unMasked);
+        $cpf = new CpfType($unMasked);
         $this->assertEquals($masked, $cpf->mask());
     }
 
@@ -179,7 +179,7 @@ class CpfTest extends \PHPUnit_Framework_TestCase
      */
     public function testUnMask($masked, $unMasked)
     {
-        $cpf = new Cpf($masked);
+        $cpf = new CpfType($masked);
         $this->assertEquals($unMasked, $cpf->unMask());
     }
 }

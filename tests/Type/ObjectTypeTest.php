@@ -10,22 +10,22 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
 {
     public function testInterface()
     {
-        $this->assertInstanceOf(CoreTypeInterface::class, new Object);
+        $this->assertInstanceOf(CoreTypeInterface::class, new ObjectType);
     }
 
     public function testContructDefaultValue()
     {
-        new Object();
+        new ObjectType();
     }
 
     public function testContructNull()
     {
-        new Object(null);
+        new ObjectType(null);
     }
 
     public function testIsValid()
     {
-        $object = new Object(new \stdClass);
+        $object = new ObjectType(new \stdClass);
         $this->assertTrue($object->isValid());
     }
 
@@ -36,7 +36,7 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsInvalid()
     {
-        $string = new Object(1);
+        $string = new ObjectType(1);
     }
 
     /**
@@ -45,9 +45,9 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
     public function providerObjectsAndNamespaces()
     {
         return [
-            ['Lidercap\Core\Type\String', 'Lidercap\Core\Type', 'String'],
-            ['Lidercap\Core\Type\Number', 'Lidercap\Core\Type', 'Number'],
-            ['Lidercap\Core\Type\Cpf', 'Lidercap\Core\Type', 'Cpf'],
+            ['Lidercap\Core\Type\StringType', 'Lidercap\Core\Type', 'StringType'],
+            ['Lidercap\Core\Type\NumberType', 'Lidercap\Core\Type', 'NumberType'],
+            ['Lidercap\Core\Type\CpfType', 'Lidercap\Core\Type', 'CpfType'],
         ];
     }
 
@@ -60,7 +60,7 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetBasename($objectPath, $objectNamespace, $objectName)
     {
-        $object = new Object(new $objectPath());
+        $object = new ObjectType(new $objectPath());
         $this->assertEquals($objectName, $object->getBasename());
     }
 
@@ -73,7 +73,7 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetnamespace($objectPath, $objectNamespace, $objectName)
     {
-        $object = new Object(new $objectPath());
+        $object = new ObjectType(new $objectPath());
         $this->assertEquals($objectNamespace, $object->getNamespace());
     }
 
@@ -86,7 +86,7 @@ class ObjectTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetPath($objectPath, $objectNamespace, $objectName)
     {
-        $object = new Object(new $objectPath());
+        $object = new ObjectType(new $objectPath());
         $this->assertEquals($objectPath, $object->getPath());
     }
 }
