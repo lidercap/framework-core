@@ -21,6 +21,8 @@ abstract class AbstractType implements CoreTypeInterface
     }
 
     /**
+     * @codeCoverageIgnore
+     *
      * @return string
      */
     public function __toString()
