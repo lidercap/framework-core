@@ -5,7 +5,7 @@ namespace Lidercap\Core\Type;
 /**
  * Core Type para números inteiros.
  */
-class Int extends Number
+class IntType extends NumberType
 {
     /**
      * @return bool

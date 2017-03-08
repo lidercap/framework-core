@@ -5,7 +5,7 @@ namespace Lidercap\Core\Type;
 /**
  * Core Type Number.
  */
-class Number extends AbstractType
+class NumberType extends AbstractType
 {
     use CoreTypeValueAware;
 

@@ -5,7 +5,7 @@ namespace Lidercap\Core\Type;
 /**
  * Core Type String.
  */
-class String extends AbstractType
+class StringType extends AbstractType
 {
     use CoreTypeValueAware;
 

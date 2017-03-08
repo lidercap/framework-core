@@ -2,29 +2,27 @@
 
 namespace Lidercap\Core\Type;
 
-use Respect\Validation\Validator as v;
-
 /**
- * Core Type CPF.
+ * Core Type CEP.
  */
-class Cpf extends Number implements Maskable
+class CepType extends NumberType implements Maskable
 {
     /**
      * @return bool
      */
     public function isValid()
     {
-        return v::cpf()->validate($this->value);
+        return (bool)preg_match('/^[0-9]{5}\-?[0-9]{3}$/', $this->value);
     }
 
     /**
      * Verifica se o dados está com máscara.
      *
-     * @return bool
+     * @return true
      */
     public function isMasked()
     {
-        return (bool)preg_match('/^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$/', $this->value);
+        return (bool)preg_match('/^[0-9]{5}\-[0-9]{3}$/', $this->value);
     }
 
     /**
@@ -34,12 +32,9 @@ class Cpf extends Number implements Maskable
      */
     public function mask()
     {
-        $cpf = trim($this->value);
+        $cep = trim($this->value);
 
-        return substr($cpf, 0, 3) . '.' .
-               substr($cpf, 3, 3) . '.' .
-               substr($cpf, 6, 3) . '-' .
-               substr($cpf, 9, 2);
+        return substr($cep, 0, 5) . '-' . substr($cep, 5, 7);
     }
 
     /**
@@ -49,7 +44,7 @@ class Cpf extends Number implements Maskable
      */
     public function unMask()
     {
-        return str_replace(['.', '-'], '', trim($this->value));
+        return str_replace('-', '', trim($this->value));
     }
 
     /**
@@ -57,6 +52,6 @@ class Cpf extends Number implements Maskable
      */
     public function getErrorMessage()
     {
-        return 'CPF inválido';
+        return 'CEP inválido';
     }
 }

@@ -5,7 +5,7 @@ namespace Lidercap\Core\Type;
 /**
  * Core Type para números float.
  */
-class Float extends Number
+class FloatType extends NumberType
 {
     /**
      * @return bool

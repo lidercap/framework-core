@@ -5,7 +5,7 @@ namespace Lidercap\Core\Type;
 /**
  * Core Type Object.
  */
-class Object extends AbstractType
+class ObjectType extends AbstractType
 {
     use CoreTypeValueAware;
 

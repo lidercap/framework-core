@@ -3,29 +3,29 @@
 namespace Lidercap\Tests\Core\Type;
 
 use Lidercap\Core\Type\CoreTypeInterface;
-use Lidercap\Core\Type\String;
+use Lidercap\Core\Type\StringType;
 
-class StringTest extends \PHPUnit_Framework_TestCase
+class StringTypeTest extends \PHPUnit_Framework_TestCase
 {
     public function testInterface()
     {
-        $this->assertInstanceOf(CoreTypeInterface::class, new String);
+        $this->assertInstanceOf(CoreTypeInterface::class, new StringType);
     }
 
     public function testContructDefaultValue()
     {
-        new String();
+        new StringType();
     }
 
     public function testContructNull()
     {
-        new String(null);
+        new StringType(null);
     }
 
     public function testEcho()
     {
         $value  = 'my string ' . rand(1, 100);
-        $string = new String($value);
+        $string = new StringType($value);
 
         ob_start();
         echo $string;
@@ -35,7 +35,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
 
     public function testIsValid()
     {
-        $string = new String('my string');
+        $string = new StringType('my string');
         $this->assertTrue($string->isValid());
     }
 
@@ -46,7 +46,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsInvalid()
     {
-        $string = new String(1);
+        $string = new StringType(1);
     }
 
     /**
@@ -68,7 +68,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testMatch($value, $regex)
     {
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertTrue($string->match($regex));
     }
 
@@ -81,14 +81,14 @@ class StringTest extends \PHPUnit_Framework_TestCase
     public function testNotMatch($value, $regex)
     {
         $junk   = md5(microtime());
-        $string = new String($value . $junk);
+        $string = new StringType($value . $junk);
         $this->assertFalse($string->match($regex));
     }
 
     public function testLength()
     {
         $value  = 'this is my random string ' . rand(1, 100);
-        $string = new String($value);
+        $string = new StringType($value);
 
         $this->assertEquals(strlen($value), $string->length());
     }
@@ -96,7 +96,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
     public function testTrim()
     {
         $value  = 'string';
-        $string = new String(str_repeat(' ', rand(1, 100)) . $value . str_repeat(' ', rand(1, 100)));
+        $string = new StringType(str_repeat(' ', rand(1, 100)) . $value . str_repeat(' ', rand(1, 100)));
         $this->assertEquals($value, $string->trim());
     }
 
@@ -127,7 +127,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testReplace($phrase, $search, $replace, $expected)
     {
-        $string = new String($phrase);
+        $string = new StringType($phrase);
         $this->assertEquals($expected, $string->replace($search, $replace));
     }
 
@@ -152,7 +152,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testLowerCase($value, $expected)
     {
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($expected, $string->lowerCase());
     }
 
@@ -177,7 +177,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpperCase($value, $expected)
     {
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($expected, $string->upperCase());
     }
 
@@ -202,7 +202,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testCapitalize($value, $expected)
     {
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($expected, $string->capitalize());
     }
 
@@ -211,7 +211,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $value = 'value';
         $char  = '/';
 
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($char . $value, $string->firstChar($char));
     }
 
@@ -220,7 +220,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $value = '/value';
         $char  = '/';
 
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($value, $string->firstChar($char));
     }
 
@@ -229,7 +229,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $value = 'value';
         $char  = '/';
 
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($value . $char, $string->lastChar($char));
     }
 
@@ -238,35 +238,35 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $value = 'value/';
         $char  = '/';
 
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($value, $string->lastChar($char));
     }
 
     public function testTruncate1()
     {
         $value  = 'abc';
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($value, $string->truncate(5));
     }
 
     public function testTruncate2()
     {
         $value  = 'abc';
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($value, $string->truncate(3));
     }
 
     public function testTruncate3()
     {
         $value  = 'abcdefghij';
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals('abc', $string->truncate(3));
     }
 
     public function testTruncate4()
     {
         $value  = 'abcdefghij';
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals('abc...', $string->truncate(3, '...'));
     }
 
@@ -340,7 +340,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testClear($value, $expected)
     {
-        $string = new String($value);
+        $string = new StringType($value);
         $this->assertEquals($expected, $string->clear());
     }
 
@@ -349,7 +349,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $value    = 'string1,string2,string3';
         $expected = ['string1','string2','string3'];
 
-        $string = new String($value);
+        $string = new StringType($value);
         $array  = $string->explode();
 
         $this->assertInternalType('array', $array);
@@ -361,7 +361,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $value    = 'string1|string2|string3';
         $expected = ['string1','string2','string3'];
 
-        $string = new String($value);
+        $string = new StringType($value);
         $array  = $string->explode('|');
 
         $this->assertInternalType('array', $array);
@@ -373,7 +373,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $array    = ['string1','string2','string3'];
         $expected = 'string1,string2,string3';
 
-        $string = new String();
+        $string = new StringType();
         $string->join($array);
 
         $this->assertEquals($expected, $string->getValue());
@@ -384,7 +384,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $array    = ['string1','string2','string3'];
         $expected = 'string1|string2|string3';
 
-        $string = new String();
+        $string = new StringType();
         $string->join($array, '|');
 
         $this->assertEquals($expected, $string->getValue());
