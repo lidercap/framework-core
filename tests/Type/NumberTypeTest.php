@@ -3,18 +3,18 @@
 namespace Lidercap\Tests\Core\Type;
 
 use Lidercap\Core\Type\CoreTypeInterface;
-use Lidercap\Core\Type\Number;
+use Lidercap\Core\Type\NumberType;
 
-class NumberTest extends \PHPUnit_Framework_TestCase
+class NumberTypeTest extends \PHPUnit_Framework_TestCase
 {
     public function testInterface()
     {
-        $this->assertInstanceOf(CoreTypeInterface::class, new Number);
+        $this->assertInstanceOf(CoreTypeInterface::class, new NumberType);
     }
 
     public function testIsValid()
     {
-        $string = new Number(1);
+        $string = new NumberType(1);
         $this->assertTrue($string->isValid());
     }
 
@@ -25,13 +25,13 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsInvalid()
     {
-        new Number('string');
+        new NumberType('string');
     }
 
     public function testLength()
     {
         $value  = rand(1, 100);
-        $string = new Number($value);
+        $string = new NumberType($value);
 
         $this->assertEquals(strlen($value), $string->length());
     }
