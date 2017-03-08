@@ -3,13 +3,13 @@
 namespace Lidercap\Tests\Core\Type;
 
 use Lidercap\Core\Type\CoreTypeInterface;
-use Lidercap\Core\Type\Int;
+use Lidercap\Core\Type\IntegerType;
 
-class IntTest extends \PHPUnit_Framework_TestCase
+class IntegerTypeTest extends \PHPUnit_Framework_TestCase
 {
     public function testInterface()
     {
-        $this->assertInstanceOf(CoreTypeInterface::class, new Int);
+        $this->assertInstanceOf(CoreTypeInterface::class, new IntegerType);
     }
 
     /**
@@ -30,7 +30,7 @@ class IntTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsValid($value)
     {
-        $int = new Int($value);
+        $int = new IntegerType($value);
         $this->assertTrue($int->isValid($value));
     }
 
@@ -63,7 +63,7 @@ class IntTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsInvalid($value)
     {
-        $int = new Int($value);
+        $int = new IntegerType($value);
         $this->assertFalse($int->isValid($value));
     }
 }

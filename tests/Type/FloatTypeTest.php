@@ -3,13 +3,13 @@
 namespace Lidercap\Tests\Core\Type;
 
 use Lidercap\Core\Type\CoreTypeInterface;
-use Lidercap\Core\Type\Float;
+use Lidercap\Core\Type\FloatType;
 
-class FloatTest extends \PHPUnit_Framework_TestCase
+class FloatTypeTest extends \PHPUnit_Framework_TestCase
 {
     public function testInterface()
     {
-        $this->assertInstanceOf(CoreTypeInterface::class, new Float);
+        $this->assertInstanceOf(CoreTypeInterface::class, new FloatType);
     }
 
     /**
@@ -32,7 +32,7 @@ class FloatTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsValid($value)
     {
-        $float = new Float($value);
+        $float = new FloatType($value);
         $this->assertTrue($float->isValid($value));
     }
 
@@ -64,6 +64,6 @@ class FloatTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsInvalid($value)
     {
-        new Float($value);
+        new FloatType($value);
     }
 }
