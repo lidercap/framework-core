@@ -2,14 +2,14 @@
 
 namespace Lidercap\Tests\Core\Type;
 
-use Lidercap\Core\Type\Cep;
+use Lidercap\Core\Type\CepType;
 use Lidercap\Core\Type\Maskable;
 
-class CepTest extends \PHPUnit_Framework_TestCase
+class CepTypeTest extends \PHPUnit_Framework_TestCase
 {
     public function testInterface()
     {
-        $this->assertInstanceOf(Maskable::class, new Cep());
+        $this->assertInstanceOf(Maskable::class, new CepType);
     }
 
     /**
@@ -42,7 +42,7 @@ class CepTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsValid($value)
     {
-        $cep = new Cep($value);
+        $cep = new CepType($value);
         $this->assertTrue($cep->isValid());
     }
 
@@ -80,7 +80,7 @@ class CepTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsInValid($value)
     {
-        new Cep($value);
+        new CepType($value);
     }
 
     /**
@@ -103,10 +103,10 @@ class CepTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsMasked($unMasked, $masked)
     {
-        $cep = new Cep($masked);
+        $cep = new CepType($masked);
         $this->assertTrue($cep->isMasked());
 
-        $cep = new Cep($unMasked);
+        $cep = new CepType($unMasked);
         $this->assertFalse($cep->isMasked());
     }
 
@@ -118,7 +118,7 @@ class CepTest extends \PHPUnit_Framework_TestCase
      */
     public function testMask($unMasked, $masked)
     {
-        $cep = new Cep($unMasked);
+        $cep = new CepType($unMasked);
         $this->assertEquals($masked, $cep->mask());
     }
 
@@ -130,7 +130,7 @@ class CepTest extends \PHPUnit_Framework_TestCase
      */
     public function testUnMask($unMasked, $masked)
     {
-        $cep = new Cep($masked);
+        $cep = new CepType($masked);
         $this->assertEquals($unMasked, $cep->unMask());
     }
 }
