@@ -3,10 +3,10 @@
 namespace Lidercap\Tests\Core\Type;
 
 use Lidercap\Core\Type\CoreTypeInterface;
-use Lidercap\Core\Type\Object;
-use Lidercap\Core\Type\String;
+use Lidercap\Core\Type\ObjectType;
+use Lidercap\Core\Type\StringType;
 
-class ObjectTest extends \PHPUnit_Framework_TestCase
+class ObjectTypeTest extends \PHPUnit_Framework_TestCase
 {
     public function testInterface()
     {
