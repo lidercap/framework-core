@@ -127,6 +127,18 @@ class StringType extends AbstractType
     }
 
     /**
+     * Garante que o último caracter da string NÃO SERÁ o caracter especificado.
+     *
+     * @param string $char
+     *
+     * @return string
+     */
+    public function lastCharIsNot($char)
+    {
+        return (substr($this->value, -1) === $char) ? substr($this->value, 0, -1) : $this->value;
+    }
+
+    /**
      * Trunca a string.
      *
      * @param int    $limit  Tamanho limite da string.
