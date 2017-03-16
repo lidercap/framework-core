@@ -103,6 +103,18 @@ class StringType extends AbstractType
     }
 
     /**
+     * Garante que o primeiro caracter da string NÃO SERÁ o caracter especificado.
+     *
+     * @param string $char
+     *
+     * @return string
+     */
+    public function firstCharIsNot($char)
+    {
+        return (substr($this->value, 0, 1) === $char) ? substr($this->value, 1) : $this->value;
+    }
+
+    /**
      * Garante que o caracter especificado será o último caracter da string.
      *
      * @param string $char

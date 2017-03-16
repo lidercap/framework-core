@@ -224,6 +224,26 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($value, $string->firstChar($char));
     }
 
+    public function testFirstCharIsNot1()
+    {
+        $value = '/value';
+        $not   = 'value';
+        $char  = '/';
+
+        $string = new StringType($value);
+        $this->assertEquals($not, $string->firstCharIsNot($char));
+    }
+
+    public function testFirstCharIsNot2()
+    {
+        $value = 'value';
+        $not   = 'value';
+        $char  = '/';
+
+        $string = new StringType($value);
+        $this->assertEquals($not, $string->firstCharIsNot($char));
+    }
+
     public function testLastChar1()
     {
         $value = 'value';
