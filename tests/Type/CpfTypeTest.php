@@ -106,7 +106,8 @@ class CpfTypeTest extends \PHPUnit_Framework_TestCase
         return [
             ['897.478.455-63'],
             ['353.584.816-48'],
-            ['894.254.992-68'],
+            ['692.311.252-49'],
+            ['966.427.191-82'],
         ];
     }
 

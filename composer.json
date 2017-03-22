@@ -19,8 +19,7 @@
   },
   "require": {
     "php": ">=5.5.9",
-    "ext-xml": "*",
-    "respect/validation": "^1.1"
+    "ext-xml": "*"
   },
   "require-dev": {
     "ext-xdebug": "*",

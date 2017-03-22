@@ -2,8 +2,6 @@
 
 namespace Lidercap\Core\Type;
 
-use Respect\Validation\Validator as v;
-
 /**
  * Core Type CPF.
  */
@@ -14,7 +12,50 @@ class CpfType extends NumberType implements Maskable
      */
     public function isValid()
     {
-        return v::cpf()->validate($this->value);
+        //Retirando a máscara.
+        $cpf = $this->unMask($this->value);
+
+        //Se houverem letras no CPF então já retorna false direto.
+        if (!is_numeric($cpf)) {
+            return false;
+        }
+        //Verificando combinações inválidas de CPF.
+
+        $nulos = array(
+            '12345678909','11111111111','22222222222','33333333333',
+            '44444444444','55555555555','66666666666','77777777777',
+            '88888888888','99999999999','00000000000'
+        );
+        if (in_array($cpf, $nulos)) {
+            return false;
+        }
+        //Verificando combinações inválidas de CPF.
+
+        //Calculando o primeiro dígito verificador.
+        $acum = 0;
+        for ($i = 0; $i < 9; $i++) {
+            $acum += $cpf[$i] * (10-$i);
+        }
+        $x = $acum % 11;
+        $acum = ($x > 1) ? (11 - $x) : 0;
+        if ($acum != $cpf[9]) {
+            return false;
+        }
+        //Calculando o primeiro dígito verificador.
+
+        //Calcula o segundo dígito verificador.
+        $acum = 0;
+        for ($i = 0; $i < 10; $i++) {
+            $acum += $cpf[$i] * (11 - $i);
+        }
+        $x = $acum % 11;
+        $acum = ($x > 1) ? (11 - $x) : 0;
+        if ($acum != $cpf[10]) {
+            return false;
+        }
+        //Calcula o segundo dígito verificador.
+
+        return true;
     }
 
     /**
