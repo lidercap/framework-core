@@ -10,12 +10,18 @@ abstract class AbstractUtil
     /**
      * @param array $arguments
      *
+     * @throws \RuntimeException
+     *
      * @return mixed
      */
     public static function __callStatic($method, $arguments)
     {
-        $object = self::getInstance($arguments);
-        $method = new \ReflectionMethod($object, $method);
+        try {
+            $object = self::getInstance($arguments);
+            $method = new \ReflectionMethod($object, $method);
+        } catch (\Exception $e) {
+            throw new \RuntimeException($e->getMessage(), -1);
+        }
 
         return $method->invokeArgs($object, $arguments);
     }
@@ -28,6 +34,10 @@ abstract class AbstractUtil
     protected static function getInstance(array $arguments)
     {
         $class = self::getClassPath();
+        if (count($arguments) === 0) {
+            return new $class();
+        }
+
         $value = $arguments[0];
         unset($arguments[0]);
 
