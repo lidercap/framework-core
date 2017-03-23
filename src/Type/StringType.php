@@ -277,6 +277,23 @@ class StringType extends AbstractType
     }
 
     /**
+     * @codeCoverageIgnore
+     *
+     * Converte a string em array.
+     *
+     * Caso o separador não esteja presente,
+     * então a própria string é retornada.
+     *
+     * @param string $separator Separador.
+     *
+     * @return array|string
+     */
+    public function split($separator = ',')
+    {
+        return $this->explode($separator);
+    }
+
+    /**
      * Converte um array em string.
      *
      * @param array  $array     Array a ser importado.
