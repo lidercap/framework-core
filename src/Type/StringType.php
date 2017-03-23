@@ -18,6 +18,14 @@ class StringType extends AbstractType
     }
 
     /**
+     * Verifica se a string possui um determinado conjunto de catacteres.
+     */
+    public function has($search)
+    {
+        return !(strpos($this->value, $search) === false);
+    }
+
+    /**
      * Verifica se a string bate com a expressáo regular fornecida.
      *
      * @param string $regex
@@ -246,25 +254,36 @@ class StringType extends AbstractType
     /**
      * Converte a string em array.
      *
-     * @param string $sepatator Separador.
+     * Caso o separador não esteja presente,
+     * então a própria string é retornada.
      *
-     * @return array
+     * @param string $separator Separador.
+     *
+     * @return array|string
      */
-    public function explode($sepatator = ',')
+    public function explode($separator = ',')
     {
-        $value = $this->lastCharIsNot($sepatator);
+        if (!strlen($this->value)) {
+            return [];
+        }
 
-        return @explode($sepatator, $value);
+        if (!$this->has($separator)) {
+            return $this->value;
+        }
+
+        $value = $this->lastCharIsNot($separator);
+
+        return @explode($separator, $value);
     }
 
     /**
      * Converte um array em string.
      *
      * @param array  $array     Array a ser importado.
-     * @param string $sepatator Separador.
+     * @param string $separator Separador.
      */
-    public function join(array $array, $sepatator = ',')
+    public function join(array $array, $separator = ',')
     {
-        $this->value = @implode($sepatator, $array);
+        $this->value = @implode($separator, $array);
     }
 }

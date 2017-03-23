@@ -52,6 +52,36 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
+    public function providerHas()
+    {
+        return [
+            ['abc', 'a'],
+            ['abc', 'ab'],
+            ['abc', 'abc'],
+        ];
+    }
+
+    /**
+     * @dataProvider providerHas
+     *
+     * @param string $value
+     * @param string $search
+     */
+    public function testHas($value, $search)
+    {
+        $string = new StringType($value);
+        $this->assertTrue($string->has($search));
+    }
+
+    public function testHasNot()
+    {
+        $string = new StringType('abc');
+        $this->assertFalse($string->has('d'));
+    }
+
+    /**
+     * @return array
+     */
     public function providerMatches()
     {
         return [
@@ -429,6 +459,42 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
         $array  = $string->explode('|');
 
         $this->assertInternalType('array', $array);
+        $this->assertEquals($expected, $array);
+    }
+
+    public function testExplode5()
+    {
+        $value    = '';
+        $expected = [];
+
+        $string = new StringType($value);
+        $array  = $string->explode();
+
+        $this->assertInternalType('array', $array);
+        $this->assertEquals($expected, $array);
+    }
+
+    public function testExplode6()
+    {
+        $value    = '';
+        $expected = [];
+
+        $string = new StringType($value);
+        $array  = $string->explode('|');
+
+        $this->assertInternalType('array', $array);
+        $this->assertEquals($expected, $array);
+    }
+
+    public function testExplode7()
+    {
+        $value    = 'string-whitout-separador';
+        $expected = $value;
+
+        $string = new StringType($value);
+        $array  = $string->explode();
+
+        $this->assertInternalType('string', $array);
         $this->assertEquals($expected, $array);
     }
 
