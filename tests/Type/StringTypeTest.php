@@ -398,7 +398,31 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
 
     public function testExplode2()
     {
+        $value    = 'string1,string2,string3,';
+        $expected = ['string1','string2','string3'];
+
+        $string = new StringType($value);
+        $array  = $string->explode();
+
+        $this->assertInternalType('array', $array);
+        $this->assertEquals($expected, $array);
+    }
+
+    public function testExplode3()
+    {
         $value    = 'string1|string2|string3';
+        $expected = ['string1','string2','string3'];
+
+        $string = new StringType($value);
+        $array  = $string->explode('|');
+
+        $this->assertInternalType('array', $array);
+        $this->assertEquals($expected, $array);
+    }
+
+    public function testExplode4()
+    {
+        $value    = 'string1|string2|string3|';
         $expected = ['string1','string2','string3'];
 
         $string = new StringType($value);

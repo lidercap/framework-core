@@ -252,7 +252,9 @@ class StringType extends AbstractType
      */
     public function explode($sepatator = ',')
     {
-        return @explode($sepatator, $this->value);
+        $value = $this->lastCharIsNot($sepatator);
+
+        return @explode($sepatator, $value);
     }
 
     /**
