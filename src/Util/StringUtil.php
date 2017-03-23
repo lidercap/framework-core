@@ -5,7 +5,8 @@ namespace Lidercap\Core\Util;
 /**
  * Classe proxy para "Lidercap\Core\Type\StringType".
  *
- * @method bool   isValid(string $String)
+ * @method bool   isValid(string $string)
+ * @method bool   has(string $string, string $search)
  * @method string match(string $string, string $regex)
  * @method int    length(string $string)
  * @method string trim(string $string)
