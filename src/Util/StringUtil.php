@@ -18,10 +18,10 @@ namespace Lidercap\Core\Util;
  * @method string firstCharIsNot(string $string, string $char) static
  * @method string lastChar(string $string, string $char) static
  * @method string lastCharIsNot(string $string, string $char) static
- * @method string truncate(string $string, string $limit, string $append) static
+ * @method string truncate(string $string, string $limit, string $append = '') static
  * @method string clear(string $string) static
- * @method string explode(string $string, string $sepatator) static
- * @method string join(array $array, string $sepatator) static
+ * @method string explode(string $string, string $sepatator = ',') static
+ * @method string join(array $array, string $sepatator = ',') static
  */
 class StringUtil extends AbstractUtil
 {
