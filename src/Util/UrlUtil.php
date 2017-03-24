@@ -16,6 +16,10 @@ namespace Lidercap\Core\Util;
  * @method string getQuery(string $url) static
  * @method string getAnchor(string $url) static
  * @method string parse(string $url) static
+ * @method string firstChar(string $string, string $char) static
+ * @method string firstCharIsNot(string $string, string $char) static
+ * @method string lastChar(string $string, string $char) static
+ * @method string lastCharIsNot(string $string, string $char) static
  */
 class UrlUtil extends AbstractUtil
 {
