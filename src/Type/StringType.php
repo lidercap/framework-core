@@ -189,9 +189,9 @@ class StringType extends AbstractType
     }
 
     /**
-     * @codeCoverageIgnore
-     *
      * Converte a string em array.
+     *
+     * @codeCoverageIgnore
      *
      * Caso o separador não esteja presente,
      * então a própria string é retornada.
@@ -214,6 +214,19 @@ class StringType extends AbstractType
     public function join(array $array, $separator = ',')
     {
         $this->value = @implode($separator, $array);
+    }
+
+    /**
+     * Converte um array em string.
+     *
+     * @codeCoverageIgnore
+     *
+     * @param array  $array     Array a ser importado.
+     * @param string $separator Separador.
+     */
+    public function implode(array $array, $separator = ',')
+    {
+        return $this->join($array, $separator);
     }
 
     /**
