@@ -164,6 +164,59 @@ class StringType extends AbstractType
     }
 
     /**
+     * Converte a string em array.
+     *
+     * Caso o separador não esteja presente,
+     * então a própria string é retornada.
+     *
+     * @param string $separator Separador.
+     *
+     * @return array|string
+     */
+    public function explode($separator = ',')
+    {
+        if (!strlen($this->value)) {
+            return [];
+        }
+
+        if (!$this->has($separator)) {
+            return $this->value;
+        }
+
+        $value = $this->lastCharIsNot($separator);
+
+        return @explode($separator, $value);
+    }
+
+    /**
+     * @codeCoverageIgnore
+     *
+     * Converte a string em array.
+     *
+     * Caso o separador não esteja presente,
+     * então a própria string é retornada.
+     *
+     * @param string $separator Separador.
+     *
+     * @return array|string
+     */
+    public function split($separator = ',')
+    {
+        return $this->explode($separator);
+    }
+
+    /**
+     * Converte um array em string.
+     *
+     * @param array  $array     Array a ser importado.
+     * @param string $separator Separador.
+     */
+    public function join(array $array, $separator = ',')
+    {
+        $this->value = @implode($separator, $array);
+    }
+
+    /**
      * Remove acentuação e caracteres especiais da string.
      *
      * @return string
@@ -249,58 +302,5 @@ class StringType extends AbstractType
                 /** Bloco dos ordinais **/
             )
         );
-    }
-
-    /**
-     * Converte a string em array.
-     *
-     * Caso o separador não esteja presente,
-     * então a própria string é retornada.
-     *
-     * @param string $separator Separador.
-     *
-     * @return array|string
-     */
-    public function explode($separator = ',')
-    {
-        if (!strlen($this->value)) {
-            return [];
-        }
-
-        if (!$this->has($separator)) {
-            return $this->value;
-        }
-
-        $value = $this->lastCharIsNot($separator);
-
-        return @explode($separator, $value);
-    }
-
-    /**
-     * @codeCoverageIgnore
-     *
-     * Converte a string em array.
-     *
-     * Caso o separador não esteja presente,
-     * então a própria string é retornada.
-     *
-     * @param string $separator Separador.
-     *
-     * @return array|string
-     */
-    public function split($separator = ',')
-    {
-        return $this->explode($separator);
-    }
-
-    /**
-     * Converte um array em string.
-     *
-     * @param array  $array     Array a ser importado.
-     * @param string $separator Separador.
-     */
-    public function join(array $array, $separator = ',')
-    {
-        $this->value = @implode($separator, $array);
     }
 }
