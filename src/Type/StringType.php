@@ -19,6 +19,8 @@ class StringType extends AbstractType
 
     /**
      * Verifica se a string possui um determinado conjunto de catacteres.
+     *
+     * @return bool
      */
     public function has($search)
     {
