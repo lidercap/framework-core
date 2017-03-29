@@ -5,6 +5,8 @@ namespace Lidercap\Core\Pattern;
 /**
  * Pattern de Singleton.
  *
+ * @codeCoverageIgnore
+ *
  * @link https://pt.wikipedia.org/wiki/Singleton
  */
 trait Singleton
@@ -15,8 +17,6 @@ trait Singleton
     protected static $instance = false;
 
     /**
-     * @codeCoverageIgnore
-     *
      * Construct is protected to non-singleton instance.
      */
     protected function __construct()
@@ -25,8 +25,6 @@ trait Singleton
     }
 
     /**
-     * @codeCoverageIgnore
-     *
      * @return $this
      */
     final public static function getInstance()
@@ -36,5 +34,15 @@ trait Singleton
         }
 
         return self::$instance;
+    }
+
+    /**
+     * @return $this
+     */
+    public static function resetInstance()
+    {
+        self::$instance = false;
+
+        return $this;
     }
 }
