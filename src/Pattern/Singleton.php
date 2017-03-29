@@ -37,12 +37,10 @@ trait Singleton
     }
 
     /**
-     * @return $this
+     * @return void
      */
     public static function resetInstance()
     {
         self::$instance = false;
-
-        return $this;
     }
 }
