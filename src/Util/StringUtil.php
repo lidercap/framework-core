@@ -7,7 +7,7 @@ namespace Lidercap\Core\Util;
  *
  * @method bool   isValid(string $string) static
  * @method bool   has(string $string, string $search) static
- * @method string match(string $string, string $regex) static
+ * @method bool   match(string $string, string $regex) static
  * @method int    length(string $string) static
  * @method string trim(string $string) static
  * @method string replace(string $string, string $search, string $replace) static
