@@ -28,7 +28,7 @@ Instalação
     "repositories": [
         {
             "type": "vcs",
-            "url":  "git@bitbucket.org:lidercap/framework-core.git"
+            "url":  "git@github.com:lidercap/framework-core.git"
         }
     ]
 }
@@ -65,6 +65,5 @@ Para rodar a suite de testes, você deve instalar as dependências externas do p
 Responsáveis técnicos
 ---------------------
 
- * **André Sabino: <asabino@lidercap.com.br>**
- * **Fernando Villaça: <fvillaca@lidercap.com.br>**
  * **Leonardo Thibes: <lthibes@lidercap.com.br>**
+ * **Gabriel Specian: <gspecian@lidercap.com.br>**
